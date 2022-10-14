@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.FirebaseTutorial" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/blue_firebase</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,10 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/orange_firebase</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenBackground">@color/blue_firebase</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/built_with_firebase_logo_knockout</item>
         <item name="postSplashScreenTheme">@style/Theme.FirebaseTutorial</item>
     </style>
