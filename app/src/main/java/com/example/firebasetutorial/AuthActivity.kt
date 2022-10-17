@@ -3,6 +3,8 @@ package com.example.firebasetutorial
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.firebasetutorial.databinding.ActivityAuthBinding
@@ -20,7 +22,7 @@ class AuthActivity : AppCompatActivity() {
         installSplashScreen()
         binding = ActivityAuthBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+        setContentView(binding.root)
 
         // Obtain the FirebaseAnalytics instance.
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
@@ -35,8 +37,9 @@ class AuthActivity : AppCompatActivity() {
 
     private fun setup() = binding.run {
 
-        title = "Autenticacion"
-        binding.logInBut.setOnClickListener {
+        this@AuthActivity.title = "Autenticacion"
+
+        logInBut.setOnClickListener {
             if (email.text.isNotEmpty() && pass.text.isNotEmpty()) {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                     email.text.toString(),
@@ -50,7 +53,7 @@ class AuthActivity : AppCompatActivity() {
                 }
             }
         }
-        binding.logOnBut.setOnClickListener {
+        logOnBut.setOnClickListener {
             if (email.text.isNotEmpty() && pass.text.isNotEmpty()) {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(
                     email.text.toString(),
@@ -69,7 +72,7 @@ class AuthActivity : AppCompatActivity() {
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.apply {
-            title = "Error"
+            this.setTitle("Error")
             setMessage("Se ha producido un error de autenticacion de usuario")
             setPositiveButton("Aceptar", null)
         }
@@ -80,7 +83,7 @@ class AuthActivity : AppCompatActivity() {
     private fun showHome(email: String, provider: ProviderType) {
         val homeIntent = Intent(this, HomeActivity::class.java).apply {
             putExtra("email", email)
-            putExtra("provider", provider)
+            putExtra("provider", provider.name)
         }
         startActivity(homeIntent)
     }

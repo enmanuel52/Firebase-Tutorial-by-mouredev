@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".AuthActivity">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/logInBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias=".2"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/logOnBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
