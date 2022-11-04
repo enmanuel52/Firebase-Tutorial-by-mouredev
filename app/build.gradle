@@ -38,6 +38,7 @@ android {
     buildFeatures{
         viewBinding = true
     }
+    namespace 'com.example.firebasetutorial'
 }
 
 dependencies {
@@ -60,4 +61,5 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-auth-ktx'
 
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
 }

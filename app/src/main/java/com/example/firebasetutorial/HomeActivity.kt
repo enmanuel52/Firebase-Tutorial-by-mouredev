@@ -1,5 +1,6 @@
 package com.example.firebasetutorial
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.firebasetutorial.databinding.ActivityAuthBinding
@@ -21,6 +22,12 @@ class HomeActivity : AppCompatActivity() {
         val provider = bundle?.getString("provider")
         //setup
         setup(email ?: "", provider ?: "")
+
+        //guardado de datos
+        val prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
+        prefs.putString("provider", provider)
+        prefs.apply()
     }
 
     private fun setup(email: String, provider: String) = binding.run {
@@ -31,6 +38,9 @@ class HomeActivity : AppCompatActivity() {
 
         close.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
+            val prefs = getSharedPreferences("prefs", Context.MODE_PRIVATE).edit()
+            prefs.clear()
+            prefs.apply()
             onBackPressed()
         }
     }

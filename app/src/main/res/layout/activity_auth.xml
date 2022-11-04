@@ -28,6 +28,18 @@
         app:layout_constraintHorizontal_bias=".8"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/googleBut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Google"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/logInBut"
+        android:layout_marginBottom="24dp"
+        android:drawableStart="@drawable/google_64"
+        android:background="@color/white"/>
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
